@@ -1,0 +1,177 @@
+إزاي ترفع التحديث على GitHub الحقيقي بتاعك (titan-5807/tekvance)
+====================================================================
+
+اللي اتعمل بالظبط:
+-------------------
+1. أخدت نسخة كاملة من موقعك الحقيقي (بكل أقسامه: Trust Strip, Testimonials,
+   FAQ, WhatsApp Float, Sticky CTA Bar, Schema.org SEO, إلخ) بدون أي حذف أو
+   تعديل في أي حاجة موجودة.
+2. أضفت قسم واحد بس جديد اسمه "Our Partners" بعد قسم "Why Us" وقبل
+   "Testimonials" في index.html.
+3. القسم شغال بالعربي والإنجليزي تلقائيًا (زرار اللغة في الهيدر).
+4. أضفت 34 شريك، مرتبين في 9 فئات (Categories) حسب طبيعة عملك في TEKVANCE:
+
+   1) Networking & Infrastructure: Cisco, MikroTik, Ubiquiti, Huawei,
+      Juniper Networks, Fortinet, Aruba Networks, TP-Link  [شريط متحرك]
+   2) Servers, Storage & Virtualization: HP, Dell, HPE, Lenovo, VMware,
+      Red Hat, Veeam  [شريط متحرك]
+   3) Storage & NAS (فئة جديدة): QNAP, Synology  [ثابت]
+   4) CCTV & Surveillance: Hikvision, Honeywell, Dahua, Axis
+      Communications, Uniview  [شريط متحرك]
+   5) Access Control: ZKTeco  [ثابت]
+   6) IP Telephony & VoIP: Yeastar, Grandstream, Sangoma  [شريط متحرك]
+   7) Cybersecurity: Kaspersky, Sophos  [ثابت]
+   8) Power & Infrastructure: Schneider Electric, APC, Eaton, Vertiv
+      [شريط متحرك]
+   9) Cloud, Software & Hardware: Microsoft, Intel  [ثابت]
+
+   الشركات الجديدة المضافة في هذا التحديث: Aruba Networks, TP-Link,
+   QNAP, Synology, Uniview, Sangoma, Vertiv - كلها براندات مرتبطة
+   مباشرة بمجالات عملك (شبكات، NAS/تخزين، CCTV، اتصالات، طاقة/UPS).
+
+=====================================================================
+تصميم "الشريط المتحرك" (Marquee) للفئات الكبيرة
+=====================================================================
+
+بدل ما كل الفئات تكون Grid ثابت، الفئات اللي فيها 3 شعارات أو أكتر
+(Networking, Servers/Storage, CCTV, IP Telephony, Power) بقت شرائط
+أفقية بتتحرك تلقائيًا وبشكل متصل (Infinite Loop) بدون أي انقطاع.
+
+- الفئات بتتحرك باتجاهات متبادلة (يمين/شمال) لإحساس بصري أكتر حيوية.
+- الحركة بتتوقف تلقائيًا (Pause) لو المستخدم حرّك الماوس فوق الشريط،
+  عشان يقدر يقرا اسم الشركة بارتياح.
+- في حالة المستخدمين اللي مفعّلين "تقليل الحركة" (Reduced Motion) من
+  إعدادات نظام التشغيل/المتصفح، الحركة بتتوقف تلقائيًا لصالح إمكانية
+  الوصول (Accessibility).
+- الفئات الصغيرة جدًا (شركة أو شركتين، زي Access Control أو
+  Cybersecurity) فضلت شبكة ثابتة (Static) في المنتصف، لأن التحريك
+  مش هيضيف قيمة بصرية مع عدد قليل من الشعارات.
+5. أضفت رابط "Partners" في القائمة العلوية (Nav) وفي الفوتر، في كل
+   من index.html و projects.html.
+6. أضفت CSS الخاص بتصميم القسم في نهاية css/style.css (متناسق تمامًا مع
+   ألوان وتصميم باقي الموقع - الكحلي والأزرق).
+7. أضفت .partners-category لقائمة عناصر الـ "scroll reveal animation" في
+   js/script.js (سطر واحد فقط) عشان كل فئة (Category) تظهر بتأثير الظهور
+   التدريجي الموجود في باقي عناصر الموقع، فئة فئة أثناء السكرول.
+8. رتبت الشعارات في 8 فئات (Categories) بعناوين فرعية بدل ما تكون كلها في
+   شبكة واحدة عشوائية - بترتيب أولوية يعكس مجالات عملك الفعلية.
+
+الملفات اللي اتغيرت:
+---------------------
+- index.html          (تعديل: إضافة قسم Partners + رابط Nav/Footer)
+- projects.html       (تعديل: إضافة رابط Partners في Nav/Footer فقط)
+- css/style.css       (تعديل: إضافة CSS خاص بـ .partners, .partner-logo,
+                      و .partners-category-title للفئات الفرعية)
+- js/script.js        (تعديل: سطر واحد لإضافة .partners-category لـ reveal)
+- assets/partners/*.svg (جديد: 34 ملف شعارات مؤقتة)
+
+الملفات اللي لم تتغير إطلاقًا:
+--------------------------------
+- 404.html
+- manifest.json
+- robots.txt
+- sitemap.xml
+
+خطوات الرفع على GitHub:
+-------------------------
+1. افتح مستودعك: https://github.com/titan-5807/tekvance
+2. استبدل الملفات دي بنفس المسارات بالظبط:
+   - index.html
+   - projects.html
+   - css/style.css
+   - js/script.js
+3. ارفع مجلد assets/partners/ كامل (فيه 7 ملفات svg).
+4. اعمل commit بعنوان مناسب زي: "Add bilingual Partners section (HP, Dell,
+   Lenovo, Cisco, HPE, Hikvision, Honeywell)"
+5. لو الموقع شغال على GitHub Pages، التحديث هيظهر تلقائيًا خلال دقايق.
+
+=====================================================================
+تنظيم صور المشاريع في فولدر منفصل assets/projects/
+=====================================================================
+
+عدّلت الكود في projects.html عشان يقرأ صور المشاريع الست من فولدر فرعي
+جديد اسمه assets/projects/ بدل ما تكون كل الصور (شعارات + صور مشاريع)
+مبعثرة مع بعض في assets/ مباشرة.
+
+**مهم جدًا**: أنا معنديش نسخة من ملفات الصور الفعلية (الـ jpg الحقيقية
+لصور المشاريع)، لأنها لم تُرفع لي كملفات - كان عندي فقط أكواد الصفحات.
+يعني اللي عملته هو تحديث الكود بس (المسارات)، ولازم انت فعليًا:
+
+1. روح لمستودعك على GitHub داخل فولدر assets/
+2. اعمل فولدر جديد اسمه بالظبط: projects
+3. انقل الملفات الستة دي من assets/ إلى داخل assets/projects/
+   (بدون تغيير أسماء الملفات نفسها):
+
+   assets/project-access-control.jpg   →  assets/projects/project-access-control.jpg
+   assets/project-cabling.jpg          →  assets/projects/project-cabling.jpg
+   assets/project-cctv.jpg             →  assets/projects/project-cctv.jpg
+   assets/project-network-tower.jpg    →  assets/projects/project-network-tower.jpg
+   assets/project-server-room.jpg      →  assets/projects/project-server-room.jpg
+   assets/project-telephony.jpg        →  assets/projects/project-telephony.jpg
+
+4. ارفع النسخة الجديدة من projects.html (المرفقة هنا) اللي بقت
+   بتشاور على assets/projects/... بدل assets/...
+
+بعد كده، فولدر assets/ الرئيسي هيفضل فيه بس: الشعار (logo-icon.jpg,
+logo-full.jpg)، الفافيكونز (favicon.ico وباقي أحجامها)، وفولدر
+partners/ (شعارات الشركاء)، وفولدر projects/ (صور المشاريع) منفصلين
+تمامًا وبكده يبقى التنظيم واضح ومرتب.
+
+ملحوظة: لو تفضل، ممكن كمان تنقل الشعار (logo-icon.jpg, logo-full.jpg)
+والفافيكونز لفولدر فرعي زي assets/brand/ لو حابب تنظيم أعمق، وقولّي
+لو عايز أظبط الكود على أساس كده كمان.
+
+استبدال الشعارات المؤقتة بالشعارات الرسمية:
+----------------------------------------------
+الشعارات الحالية في assets/partners/ هي نصوص بسيطة (Wordmark) مؤقتة لأن
+الذكاء الاصطناعي لا يمكنه إنشاء نسخ من الشعارات الرسمية المسجلة كعلامات
+تجارية. لاستبدالها:
+
+1. حمّل الشعار الرسمي (PNG شفاف أو SVG) من موقع كل شركة أو Brand Kit
+   الرسمي بتاعها:
+   - HP:                  hp.com → Newsroom / Brand Guidelines
+   - Dell:                dell.com → Newsroom / Brand Assets
+   - Lenovo:              lenovo.com → Press/Media Kit
+   - Cisco:               cisco.com → Brand Center
+   - HPE:                 hpe.com → Newsroom / Brand Assets
+   - Hikvision:           hikvision.com → About Us / Media Center
+   - Honeywell:           honeywell.com → Newsroom / Brand Assets
+   - Veeam:               veeam.com → Newsroom / Partner Brand Kit
+   - VMware:              vmware.com (Broadcom) → Brand Guidelines
+   - Red Hat:             redhat.com → Brand Guidelines / Logo Assets
+   - Huawei:              huawei.com → Media Center
+   - Microsoft:           microsoft.com → Brand Guidelines (Partner logos)
+   - Kaspersky:           kaspersky.com → Media Kit / Press Center
+   - Schneider Electric:  se.com → Newsroom / Brand Assets
+   - Fortinet:            fortinet.com → Newsroom / Brand Resources
+   - Intel:               intel.com → Brand Center (for Partner badges,
+                          check the Intel Partner Alliance portal)
+   - Sophos:              sophos.com → Partner/Press Resources
+   - MikroTik:            mikrotik.com → Partner logo usually available
+                          via distributor / official site
+   - Ubiquiti:            ui.com → Brand assets in the UI Community/press
+   - Juniper Networks:    juniper.net → Newsroom / Brand Guidelines
+   - Dahua:               dahuasecurity.com → Partner/Media Center
+   - Axis Communications: axis.com → Newsroom / Brand Assets
+   - ZKTeco:              zkteco.com → Partner/Media resources
+   - Yeastar:             yeastar.com → Partner Portal / Media Kit
+   - Grandstream:         grandstream.com → Partner/Media resources
+   - APC (by Schneider):  apc.com → Brand Assets
+   - Eaton:               eaton.com → Newsroom / Brand Assets
+   - Aruba Networks:      arubanetworks.com (HPE) → Brand Assets
+   - TP-Link:             tp-link.com → Partner/Media resources
+   - QNAP:                qnap.com → Partner/Media Center
+   - Synology:            synology.com → Partner/Press Center
+   - Uniview:             uniview.com → Partner/Media resources
+   - Sangoma:             sangoma.com → Partner/Media resources
+   - Vertiv:               vertiv.com → Newsroom / Brand Assets
+
+2. سمّي الملف الجديد بنفس الاسم (مثلاً hp.png) وضعه في assets/partners/
+   بدل الملف القديم.
+3. لو غيّرت الامتداد (من svg إلى png)، افتح index.html ودوّر على السطر:
+   <img src="assets/partners/hp.svg" ...>
+   وغيّره لـ:
+   <img src="assets/partners/hp.png" ...>
+
+ملاحظة: الشعارات بتظهر بالأبيض والأسود (grayscale) وتتلون عند تمرير
+الماوس (hover) - ده تأثير مقصود في .partner-logo داخل css/style.css.
