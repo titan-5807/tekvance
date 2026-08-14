@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://titan-5807.github.io/tekvance/sitemap.xml
